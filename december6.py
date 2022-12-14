@@ -11,9 +11,7 @@ def part1():
     for i in range(0,len(stream)-4):
         
         curr = set(stream[i:i+4])
-        
-
-        
+    
         if len(curr) == 4:
             print(curr)
             break
