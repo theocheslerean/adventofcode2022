@@ -67,15 +67,12 @@ def part1():
             visited.add(tuple(T))
 
 
-    print(len(visited))
-    # print((visited))
-    # for i in range(len(stream)):
-    #     stream[i] = [int(letter) for letter in stream[i]]
+    return len(visited)
 
     
 def part2():
     #do the towers of hanoi style
-    lines = get_file_contents('inputs/input_december9.txt')
+    lines = get_file_contents('inputs/test2_december9.txt')
     stream = "".join(lines).strip().split('\n')
     
     '''
@@ -133,8 +130,8 @@ def part2():
                     # print(f'{H}-{T}')
                     continue
                 
-                worm[pos][0] += min(movement[0],1) if movement[0]>0 else max(movement[0],-1)
-                worm[pos][1] += min(movement[1],1) if movement[1]>0 else max(movement[1],-1)
+                worm[pos][0] += min(movement[0],1)
+                worm[pos][1] += min(movement[1],1)
                 
                 # print(f'{H}-{T}')
                 
@@ -142,7 +139,6 @@ def part2():
 
 
     print(len(visited))
-
 
 def solution():
     print(part1())
