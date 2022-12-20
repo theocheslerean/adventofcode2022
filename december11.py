@@ -102,7 +102,7 @@ def part1():
         
 def part2():
     #do the towers of hanoi style
-    lines = get_file_contents('inputs/test_december11.txt')
+    lines = get_file_contents('inputs/input_december11.txt')
     stream = "".join(lines).strip().split('\n')
     
     monkeys = []
@@ -150,7 +150,7 @@ def part2():
     
     # pprint(monkeys)
     
-    for round in tqdm(range(20)):
+    for round in tqdm(range(10000)):
         for monkey in monkeys:
             if not(monkey['items']):
                 continue           
@@ -180,13 +180,15 @@ def part2():
                 # monkeys[monkey['throw'][monkey['test'](currentItem, monkey['test-y'])]]['items'].append(normalizedCurrentItem)
                 # monkeys[monkey['throw'][monkey['test'](currentItem, monkey['test-y'])]]['items'].append((normalizedCurrentItem))
                 
+                normalizedCurrentItem = currentItem % (2*3*5*7*11*13*17*19)
+                # normalizedCurrentItem = currentItem % (13*17*19*23)
                 # normalizedCurrentItem = currentItem % monkey['test-y'] #if currentItem % monkey['test-y'] != 0 else 0
                 # normalizedCurrentItem = monkey['operation'](currentItem % monkey['test-y'] + monkey['test-y'], monkey['op-y']) % monkey['test-y']
                 # normalizedCurrentItem = monkey['operation'](currentItem % monkey['test-y'], monkey['op-y'] % monkey['test-y'] if monkey['sign'] != '*.' else 1) #if currentItem % monkey['test-y'] != 0 else currentItem
                 # print(f'{currentItem} - {normalizedCurrentItem}')
                 
                 
-                monkeys[monkey['throw'][monkey['test'](currentItem, monkey['test-y'])]]['items'].append(currentItem)
+                monkeys[monkey['throw'][monkey['test'](currentItem, monkey['test-y'])]]['items'].append(normalizedCurrentItem)
                 
                 # print(currentItem)
     
